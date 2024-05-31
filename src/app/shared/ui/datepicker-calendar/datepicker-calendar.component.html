@@ -1,0 +1,30 @@
+<mat-card class="container">
+    <mat-card-header>
+        <div class="header-container">
+            <button mat-icon-button (click)="decreaseMonth()" class="change-month-button">
+                <mat-icon fontIcon="chevron_left" />
+            </button>
+            <p>{{ currentDate() | date: 'MMMM YYYY' }}</p>
+            <button mat-icon-button (click)="increaseMonth()" class="change-month-button">
+                <mat-icon fontIcon="chevron_right" />
+            </button>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="grid-container">
+            @for (day of weekdays; track $index) {
+            <div class="day-label">{{ day }}</div>
+            }
+            @for ( dateItem of displayedDates(); track $index) {
+            <button mat-button class="date-button" 
+                [class.selected]="checkSelected(dateItem.date)"
+                [class.has-event]="dateItem.hasEvent"
+                [class.has-multiple-event]="dateItem.hasMultipleEvent"
+                [class.in-other-months]="dateItem.inOtherMonths"
+                [class.today]="checkToday(dateItem.date)"
+                (click)="selectDate(dateItem.date)">{{ dateItem.date | date: 'd' }}</button>
+            }
+        </div>
+
+    </mat-card-content>
+</mat-card>

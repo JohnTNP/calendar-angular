@@ -1,0 +1,87 @@
+.container {
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.grid-container {
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.day-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.date-button {
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+    &.in-other-months {
+        color: gray;
+    }
+    &.has-event {
+        &::after {
+            position: absolute;
+            content: "";
+            width: 10px;
+            height: 10px;
+            bottom: 15%;
+            border-radius: 100%;
+            background-color: #ba005c;
+        }
+    }
+    &.has-multiple-event {
+        &::before {
+            position: absolute;
+            content: "";
+            width: 10px;
+            height: 10px;
+            right: 36%;
+            bottom: 15%;
+            border-radius: 100%;
+            background-color: #c784a6;
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            width: 10px;
+            height: 10px;
+            left: 36%;
+            bottom: 15%;
+            border-radius: 100%;
+            background-color: #ba005c;
+        }
+    }
+    &.today {
+        color: #ba005c;
+        background-color: #fde2f0;
+    }
+    &.selected {
+        color: white;
+        background-color: #ba005c;
+        &.has-event {
+            &::after {
+                background-color: white;
+            }
+        }
+        &.has-multiple-event {
+            &::before {
+                background-color: white;
+            }
+            &::after {
+                background-color: white;
+            }
+        }
+    }
+}
