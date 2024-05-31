@@ -8,13 +8,13 @@ export class CalendarService {
     dateValue = signal<Date>(new Date())
 
     eventList = signal<CalendarEvent[]>([
-        { title: 'Holiday', date: new Date(2024, 4, 20) },
-        { title: 'Holiday1', date: new Date(2024, 4, 2, 8) },
-        { title: 'Holiday2', date: new Date(2024, 4, 2, 12) }
+        { title: 'Read A Book', date: new Date(2024, 5, 20, 10) },
+        { title: 'Cook Breakfast', date: new Date(2024, 5, 2, 8) },
+        { title: 'Cook Lunch', date: new Date(2024, 5, 2, 12) }
     ])
 
     constructor() {}
-    
+
     addEvent(event: CalendarEvent) {
         this.eventList.set([...this.eventList(), event])
     }

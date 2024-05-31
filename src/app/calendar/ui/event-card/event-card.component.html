@@ -1,5 +1,7 @@
 <mat-card>
     <mat-card-content>
+      <div class="event-container">
         <app-event-list [eventList]="showedEventList()" (onDrop)="addEventOnDrop($event)" />
+      </div>
     </mat-card-content>
 </mat-card>

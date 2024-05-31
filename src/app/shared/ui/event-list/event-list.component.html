@@ -1,5 +1,5 @@
 <div class="event-list" cdkDropList (cdkDropListDropped)="drop($event)">
     @for (timeItem of times(); track $index) {
-        <div class="placeholder-box" cdkDrag>{{ timeItem.event?.title }} {{timeItem.event?.date | date: 'short'}}</div>
+        <div class="placeholder-box" cdkDrag>{{ timeItem.event?.title }} {{timeItem.event?.date | date: 'shortTime'}}</div>
     }
 </div>
